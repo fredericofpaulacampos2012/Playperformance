@@ -1,10 +1,13 @@
 'use strict'
 const repository = require('../repositories/order-repository');
+const authService = require('../services/auth-service');
 const guid = require('guid');
 
 exports.post= async(req,res,next)=>{
+    const token = req.body.token || req.query.token || req.headers['x-access-token'];
+    const customer = await authService.decodeToken(token);
     let data = {
-        customer:req.body.customer,
+        customer:customer.id,
         number: guid.raw().substring(0,6),
         items: req.body.items
     }
