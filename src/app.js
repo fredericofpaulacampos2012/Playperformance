@@ -14,6 +14,7 @@ const Customer = require('./models/customer');
 const Service = require('./models/service');
 const Expense = require('./models/expenses');
 const SignaturePlan = require('./models/signatureplan');
+const Signature = require('./models/signature');
 
 const Order = require('./models/order');
 ///Carrega as Rotas//
@@ -22,6 +23,7 @@ const customersRoute = require('./routes/customers-routes');
 const servicesRoute = require('./routes/services-routes');
 const expensesRoute = require('./routes/expenses-routes');
 const signatureplanRoute = require('./routes/signatureplan-routes');
+const signatureRoute = require('./routes/signatures-routes');
 
 const ordersRoute = require('./routes/orders-routes');
 
@@ -32,6 +34,7 @@ app.use('/customers',customersRoute);
 app.use('/services',servicesRoute);
 app.use('/expenses',expensesRoute);
 app.use('/plans',signatureplanRoute);
+app.use('/signatures',signatureRoute);
 
 app.use('/orders',ordersRoute);
 
