@@ -7,16 +7,16 @@ exports.create = async(body)=>{
     await sig.save();
 };
 exports.get= async()=>{
-    const res = await Signature.find({ativo:true},'idPlano cliente ultimaRenovacao pagoAte')
-        .populate('cliente', 'nome')
-        .populate('idPlano.servicos.idServico', 'titulo');
+    const res = await Signature.find({ativo:true},'idPlano idCliente ultimaRenovacao pagoAte')
+        .populate('idCliente', 'nome')
+        .populate({path:'idPlano',populate:{path:'servicos.idServico',select:{titulo:1}}});
     return res;
 };
 exports.getById = async(id)=>{
     const res = await Signature.findById(id,'')
-        .populate('cliente', 'nome')
-        .populate('idPlano.servicos.idServico', 'titulo');
-    return res;
+        .populate('idCliente', 'nome')
+        .populate({path:'idPlano',populate:{path:'servicos.idServico',select:{titulo:1}}});
+return res;
 };
 exports.update = async(id,body)=>{
     await Signature.findByIdAndUpdate(id,{
