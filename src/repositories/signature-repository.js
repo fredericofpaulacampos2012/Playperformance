@@ -9,13 +9,13 @@ exports.create = async(body)=>{
 exports.get= async()=>{
     const res = await Signature.find({ativo:true},'idPlano idCliente ultimaRenovacao pagoAte')
         .populate('idCliente', 'nome')
-        .populate({path:'idPlano',populate:{path:'servicos.idServico',select:{titulo:1}}});
+        .populate({path:'idPlano',populate:{path:'servicos.idServico',select:{titulo:1}},select:{idPlano:1}});
     return res;
 };
 exports.getById = async(id)=>{
     const res = await Signature.findById(id,'')
         .populate('idCliente', 'nome')
-        .populate({path:'idPlano',populate:{path:'servicos.idServico',select:{titulo:1}}});
+        .populate({path:'idPlano',populate:{path:'servicos.idServico',select:{titulo:1}},select:{idPlano:1}});
 return res;
 };
 exports.update = async(id,body)=>{

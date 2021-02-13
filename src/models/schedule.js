@@ -58,7 +58,7 @@ const schema = new Schema({
         type: String,
         required:true,
         trim:true,
-        enum:['Agendado','Confirmado','Cancelado','Concluído'],
+        enum:['Agendado','Confirmado','Cancelado','Concluído','Avaliado'],
         default:'Agendado'
     },
     valor:{

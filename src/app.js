@@ -17,6 +17,7 @@ const SignaturePlan = require('./models/signatureplan');
 const Signature = require('./models/signature');
 const Income = require('./models/income');
 const Schedule = require('./models/schedule');
+const Feedback = require('./models/feedback');
 
 ///Carrega as Rotas//
 const indexRoute = require('./routes/index-routes');
@@ -27,6 +28,7 @@ const signatureplanRoute = require('./routes/signatureplan-routes');
 const signatureRoute = require('./routes/signatures-routes');
 const incomesRoute = require('./routes/incomes-routes');
 const schedulesRoute = require('./routes/schedules-routes');
+const feedbacksRoute = require('./routes/feedbacks-routes');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
@@ -38,5 +40,6 @@ app.use('/plans',signatureplanRoute);
 app.use('/signatures',signatureRoute);
 app.use('/incomes',incomesRoute);
 app.use('/schedules',schedulesRoute);
+app.use('/feedbacks',feedbacksRoute);
 
 module.exports=app;
