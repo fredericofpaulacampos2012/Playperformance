@@ -16,6 +16,7 @@ const Expense = require('./models/expenses');
 const SignaturePlan = require('./models/signatureplan');
 const Signature = require('./models/signature');
 const Income = require('./models/income');
+const Schedule = require('./models/schedule');
 
 ///Carrega as Rotas//
 const indexRoute = require('./routes/index-routes');
@@ -25,6 +26,7 @@ const expensesRoute = require('./routes/expenses-routes');
 const signatureplanRoute = require('./routes/signatureplan-routes');
 const signatureRoute = require('./routes/signatures-routes');
 const incomesRoute = require('./routes/incomes-routes');
+const schedulesRoute = require('./routes/schedules-routes');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
@@ -35,5 +37,6 @@ app.use('/expenses',expensesRoute);
 app.use('/plans',signatureplanRoute);
 app.use('/signatures',signatureRoute);
 app.use('/incomes',incomesRoute);
+app.use('/schedules',schedulesRoute);
 
 module.exports=app;
