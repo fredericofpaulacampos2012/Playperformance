@@ -7,7 +7,7 @@ const app = express();
 const router = express.Router();
 
 ///Conecta no Banco de Dados
-mongoose.connect(config.connectionString);
+mongoose.connect(config.connectionString,{ useNewUrlParser: true, useCreateIndex: true ,useUnifiedTopology: true});
 
 //Carrega os models
 const Customer = require('./models/customer');
